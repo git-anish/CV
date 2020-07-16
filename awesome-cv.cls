@@ -151,21 +151,30 @@
 % \newfontfamily\FA[Path=\@fontdir]{FontAwesome}
 % Set font for header (default is Roboto)
 
+% \newfontfamily\headerfont[
+%  Path=\@fontdir,
+%  UprightFont=*-Light,
+%  ItalicFont=*-LightOblique,
+%  BoldFont=*-Roman,
+%  BoldItalicFont=*-BookOblique,
+% ]{Avenir}
+
 \newfontfamily\headerfont[
   Path=\@fontdir,
   UprightFont=*-Light,
-  ItalicFont=*-LightOblique,
-  BoldFont=*-Roman,
-  BoldItalicFont=*-BookOblique,
-]{Avenir}
+  ItalicFont=*-LightItalic,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldItalic,
+]{AvenirNextLTPro}
+
 
 \newfontfamily\headerfontlight[
   Path=\@fontdir,
   UprightFont=*-Light,
-  ItalicFont=*-LightOblique,
-  BoldFont=*-Roman,
-  BoldItalicFont=*-BookOblique,
-]{Avenir}
+  ItalicFont=*-LightItalic,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldItalic,
+]{AvenirNextLTPro}
 
 % Set font for footer (default is Source Sans Pro)
  \newfontfamily\footerfont[

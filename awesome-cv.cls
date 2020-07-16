@@ -161,7 +161,7 @@
 
 \newfontfamily\headerfont[
   Path=\@fontdir,
-  UprightFont=*-UltLt,
+  UprightFont=*-Regular,
   ItalicFont=*-UltLtIt,
   BoldFont=*-Bold,
   BoldItalicFont=*-BoldIt,
@@ -170,7 +170,7 @@
 
 \newfontfamily\headerfontlight[
   Path=\@fontdir,
-  UprightFont=*-UltLt,
+  UprightFont=*-Regular,
   ItalicFont=*-UltLtIt,
   BoldFont=*-Bold,
   BoldItalicFont=*-BoldIt,

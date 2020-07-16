@@ -164,19 +164,19 @@
   Extension = .otf,
   UprightFont=*-Regular,
   ItalicFont=*-Italic,
-%  BoldFont=*-Bold,
-%  BoldItalicFont=*-BoldItalic,
-]{AvenirNextLTPro}
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldItalic,
+]{AvenirNext}
 
 
 \newfontfamily\headerfontlight[
   Path=\@fontdir,
   Extension = .otf,
-  UprightFont=*-Thin,
-  ItalicFont=*-ThinItalic,
-%  BoldFont=*-Bold,
-%  BoldItalicFont=*-BoldItalic,
-]{AvenirNextLTPro}
+  UprightFont=*-UltraLight,
+  ItalicFont=*-UltraLightItalic,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldItalic,
+]{AvenirNext}
 
 % Set font for footer (default is Source Sans Pro)
  \newfontfamily\footerfont[

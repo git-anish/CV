@@ -161,29 +161,27 @@
 
 \newfontfamily\headerfont[
   Path=\@fontdir,
-  Extension = .otf,
   UprightFont=*-Regular,
   ItalicFont=*-Italic,
   BoldFont=*-Bold,
   BoldItalicFont=*-BoldItalic,
-]{AvenirNext}
+]{AvenirNextCyr}
 
 
 \newfontfamily\headerfontlight[
   Path=\@fontdir,
-  Extension = .otf,
-  UprightFont=*-UltraLight,
-  ItalicFont=*-UltraLightItalic,
+  UprightFont=*-Thin,
+  ItalicFont=*-ThinItalic,
   BoldFont=*-Bold,
   BoldItalicFont=*-BoldItalic,
-]{AvenirNext}
+]{AvenirNextCyr}
 
 % Set font for footer (default is Source Sans Pro)
  \newfontfamily\footerfont[
   Path=\@fontdir,
   UprightFont=*-Medium,
   ItalicFont=*-Italic,
-  BoldFont=*-Medium
+  BoldFont=*-SemiBold
  ]{Raleway}
 
 % Set font for body (default is Source Sans Pro)
@@ -214,13 +212,13 @@
 % For fundamental structures
 \newcommand*{\headerfirstnamestyle}[1]{{\fontsize{32pt}{1em}\headerfontlight\scshape\color{graytext} #1}}
 \newcommand*{\headerlastnamestyle}[1]{{\fontsize{32pt}{1em}\headerfontlight\scshape\color{graytext} #1}}
-\newcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\footerfont\scshape\color{awesome} #1}}
+\newcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\footerfont\bfseries\scshape\color{awesome} #1}}
 \newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
 \newcommand*{\headersocialstyle}[1]{{\fontsize{6.8pt}{1em}\headerfont\color{text} #1}}
 \newcommand*{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
 \newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
-\newcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
-\newcommand*{\subsectionstyle}[1]{{\fontsize{12pt}{1em}\bodyfont\scshape\textcolor{text}{#1}}}
+\newcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\footerfont\scshape\color{text}\@sectioncolor #1}}
+\newcommand*{\subsectionstyle}[1]{{\fontsize{12pt}{1em}\footerfont\scshape\textcolor{text}{#1}}}
 \newcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text}}
 
 % For elements of entry

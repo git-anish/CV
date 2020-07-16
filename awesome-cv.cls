@@ -164,8 +164,8 @@
   Extension = .otf,
   UprightFont=*-Regular,
   ItalicFont=*-Italic,
-  BoldFont=*-Bold,
-  BoldItalicFont=*-BoldItalic,
+%  BoldFont=*-Bold,
+%  BoldItalicFont=*-BoldItalic,
 ]{AvenirNextLTPro}
 
 
@@ -174,8 +174,8 @@
   Extension = .otf,
   UprightFont=*-Thin,
   ItalicFont=*-ThinItalic,
-  BoldFont=*-Bold,
-  BoldItalicFont=*-BoldItalic,
+%  BoldFont=*-Bold,
+%  BoldItalicFont=*-BoldItalic,
 ]{AvenirNextLTPro}
 
 % Set font for footer (default is Source Sans Pro)

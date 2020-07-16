@@ -150,13 +150,14 @@
 % Set the FontAwesome font to be up-to-date.
 % \newfontfamily\FA[Path=\@fontdir]{FontAwesome}
 % Set font for header (default is Roboto)
+
 \newfontfamily\headerfont[
-  Path=\@fontdir\,
+  Path=\@fontdir,
   UprightFont=*-Light,
   ItalicFont=*-LightOblique,
   BoldFont=*-Roman,
   BoldItalicFont=*-BookOblique,
-]{AvenirLTStd}
+]{Avenir}
 
 \newfontfamily\headerfontlight[
   Path=\@fontdir,
@@ -164,7 +165,7 @@
   ItalicFont=*-LightOblique,
   BoldFont=*-Roman,
   BoldItalicFont=*-BookOblique,
-]{AvenirLTStd}
+]{Avenir}
 
 % Set font for footer (default is Source Sans Pro)
  \newfontfamily\footerfont[

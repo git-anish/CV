@@ -152,21 +152,46 @@
 % Set font for header (default is Roboto)
 \newfontfamily\headerfont[
   Path=\@fontdir,
-  UprightFont=*-Regular,
-  ItalicFont=*-Italic,
-  BoldFont=*-Bold,
-  BoldItalicFont=*-BoldItalic,
-]{Roboto}
+  UprightFont=*-Light,
+  ItalicFont=*-LightOblique,
+  BoldFont=*-Roman,
+  BoldItalicFont=*-BookOblique,
+]{AvenirLTStd}
 
 \newfontfamily\headerfontlight[
   Path=\@fontdir,
-  UprightFont=*-Thin,
-  ItalicFont=*-ThinItalic,
-  BoldFont=*-Medium,
-  BoldItalicFont=*-MediumItalic,
-]{Roboto}
+  UprightFont=*-Light,
+  ItalicFont=*-LightOblique,
+  BoldFont=*-Roman,
+  BoldItalicFont=*-BookOblique,
+]{AvenirLTStd}
 
-\newcommand*{\footerfont}{\sourcesanspro}
+% Set font for footer (default is Source Sans Pro)
+ \newfontfamily\footerfont[
+  Path=\@fontdir,
+  UprightFont=*-Medium,
+  ItalicFont=*-Italic,
+  BoldFont=*-Medium
+ ]{Raleway}
+
+% Set font for body (default is Source Sans Pro)
+% \newfontfamily\bodyfont[
+%  Path=\@fontdir,
+%  UprightFont=*-Regular,
+%  ItalicFont=*-Italic,
+%  BoldFont=*-Bold,
+%  BoldItalicFont=*-BoldItalic
+% ]{Lato}
+
+% \newfontfamily\bodyfontlight[
+%  Path=\@fontdir,
+%  UprightFont=*-Light,
+%  ItalicFont=*-LightItalic,
+%  BoldFont=*-Semibold,
+%  BoldItalicFont=*-SemiboldIt
+% ]{Lato}
+
+% \newcommand*{\footerfont}{\sourcesanspro}
 \newcommand*{\bodyfont}{\sourcesanspro}
 \newcommand*{\bodyfontlight}{\sourcesansprolight}
 
@@ -177,7 +202,7 @@
 % For fundamental structures
 \newcommand*{\headerfirstnamestyle}[1]{{\fontsize{32pt}{1em}\headerfontlight\color{graytext} #1}}
 \newcommand*{\headerlastnamestyle}[1]{{\fontsize{32pt}{1em}\headerfontlight\color{graytext} #1}}
-\newcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\bodyfont\scshape\color{awesome} #1}}
+\newcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\footerfont\scshape\color{awesome} #1}}
 \newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
 \newcommand*{\headersocialstyle}[1]{{\fontsize{6.8pt}{1em}\headerfont\color{text} #1}}
 \newcommand*{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}

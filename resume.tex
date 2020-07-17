@@ -81,6 +81,7 @@
 
 % Print the header with above personal informations
 % Give optional argument to change alignment(C: center, L: left, R: right)
+
 \makecvheader[C]
 
 % Print the footer with 3 arguments(<left>, <center>, <right>)
@@ -89,23 +90,23 @@
   {\today}
   {Anish Sharma~~~·~~~Résumé}
   {\thepage}
-
+\vspace{-3.5mm}
 
 %-------------------------------------------------------------------------------
 %	CV/RESUME CONTENT
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
 \input{resume/summary.tex}
+\vspace{-0.5mm}
 \input{cv/skills.tex}
+\vspace{-0.5mm}
 \input{resume/experience.tex}
 %\input{resume/honors.tex}
 %\input{resume/presentation.tex}
 %\input{resume/writing.tex}
 %\input{resume/committees.tex}
 \input{resume/education.tex}
-\vspace{-5.0mm}
+\vspace{-6mm}
 \input{resume/extracurricular.tex}
-
-
 %-------------------------------------------------------------------------------
 \end{document}

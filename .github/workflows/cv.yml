@@ -7,7 +7,7 @@ jobs:
   awesome-cv-job:
     runs-on: ubuntu-latest
     steps:
-      uses: git-anish/CV
+      uses: actions/checkout@v1
     - uses: git-anish/CV@0.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.ok }}

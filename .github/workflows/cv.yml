@@ -13,5 +13,19 @@ jobs:
           root_file: resume.tex
           working_directory: ./
           args: "-xelatex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode"
-      - name: Release PDF
-        uses: actions/git-anish/CV/
+      - name: move to dir # Move the generated files into output folder
+        run: |
+          mkdir -p output
+          yes| cp -rf testfile.txt ./output/
+      - name: Commit files # commit the output folder
+        run: |
+          git config --local user.email "git-anish@github.com"
+          git config --local user.name "git-anish"
+          git add ./output
+          git commit -m "Add changes"
+      - name: Push changes # push the output folder to your repo
+        uses: git-anish/CV/output/
+        with:
+          branch: master #ignore if your branch is master
+          github_token: ${{ secrets.ok }}
+          force: true

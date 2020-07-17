@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-        - name: Compile LaTeX document
         uses: git-anish/CV
     - uses: git-anish/CV@0.0.1
       env:

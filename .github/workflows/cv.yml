@@ -1,7 +1,6 @@
 name: Test Github Action
 on:
   push:
-  schedule:
 jobs:
   test:
     runs-on: ubuntu-latest

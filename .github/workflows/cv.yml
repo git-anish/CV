@@ -24,7 +24,7 @@ jobs:
           git add ./output
           git commit -m "Add changes"
       - name: Push changes # push the output folder to your repo
-        uses: git-anish/CV/output/
+        uses: git-anish/CV/output/@master
         with:
           branch: master #ignore if your branch is master
           github_token: ${{ secrets.ok }}

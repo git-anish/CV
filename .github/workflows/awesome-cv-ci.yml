@@ -1,4 +1,4 @@
-name: Awesome-CI
+name: Anish-CV
 
 on: [push]
 
@@ -12,3 +12,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.ok }}
       with:
         FILE_NAME: 'resume.tex'
+        args: -xelatex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode

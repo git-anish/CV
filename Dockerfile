@@ -1,8 +1,8 @@
-FROM xucheng/texlive-full:latest
+FROM danteev/texlive:latest
+
+WORKDIR /root
 
 COPY \
-  LICENSE \
-  README.md \
   entrypoint.sh \
   /root/
 

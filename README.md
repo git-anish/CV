@@ -1,117 +1,134 @@
-<h1 align="center">
-  <a href="https://github.com/posquit0/Awesome-CV" title="AwesomeCV Documentation">
-    <img alt="AwesomeCV" src="https://github.com/posquit0/Awesome-CV/raw/master/icon.png" width="200px" height="200px" />
-  </a>
-  <br />
-  Awesome CV
-</h1>
+# latex-action
 
-<p align="center">
-  LaTeX template for your outstanding job application
-</p>
+[![GitHub Actions Status](https://github.com/xu-cheng/latex-action/workflows/Test%20Github%20Action/badge.svg)](https://github.com/xu-cheng/latex-action/actions)
 
-<div align="center">
-  <a href="https://www.paypal.me/posquit0">
-    <img alt="Donate" src="https://img.shields.io/badge/Donate-PayPal-blue.svg" />
-  </a>
-  <a href="https://circleci.com/gh/posquit0/Awesome-CV">
-    <img alt="CircleCI" src="https://circleci.com/gh/posquit0/Awesome-CV.svg?style=shield" />
-  </a>
-  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf">
-    <img alt="Example Resume" src="https://img.shields.io/badge/resume-pdf-green.svg" />
-  </a>
-  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/cv.pdf">
-    <img alt="Example CV" src="https://img.shields.io/badge/cv-pdf-green.svg" />
-  </a>
-  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf">
-    <img alt="Example Coverletter" src="https://img.shields.io/badge/coverletter-pdf-green.svg" />
-  </a>
-</div>
+GitHub Action to compile LaTeX documents.
 
-<br />
+It runs in [a docker image](https://github.com/xu-cheng/latex-docker) with a full [TeXLive](https://www.tug.org/texlive/) environment installed.
 
-## What is Awesome CV?
+If you want to run arbitrary commands in a TeXLive environment, use [texlive-action](https://github.com/xu-cheng/texlive-action) instead.
 
-**Awesome CV** is LaTeX template for a **CV(Curriculum Vitae)**, **Résumé** or **Cover Letter** inspired by [Fancy CV](https://www.sharelatex.com/templates/cv-or-resume/fancy-cv). It is easy to customize your own template, especially since it is really written by a clean, semantic markup.
+## Inputs
 
+* `root_file`
 
-## Donate
+    The root LaTeX file to be compiled. This input is required. You can also pass multiple files as a multi-line string to compile multiple documents. For example:
+    ```yaml
+    - uses: xu-cheng/latex-action@v2
+      with:
+        root_file: |
+          file1.tex
+          file2.tex
+    ```
 
-Please help keep this project alive! Donations are welcome and will go towards further development of this project.
+* `working_directory`
 
-    PayPal: paypal.me/posquit0
-    BTC: 1Je3DxJVM2a9nTVPNo55SfQwpmxA6N2KKb
-    BCH: 1Mg1wG7PwHGrHYSWS67TsGSjo5GHEVbF16
-    ETH: 0x77ED9B4659F80205E9B9C9FB1E26EDB9904AFCC7
-    QTUM: QZT7D6m3QtTTqp7s4ZWAwLtGDsoHMMaM8E
+    The working directory for the LaTeX engine.
 
-*Thank you for your support!*
+* `compiler`
 
-## Preview
+    The LaTeX engine to be invoked. By default, [`latexmk`](https://ctan.org/pkg/latexmk) is used, which automates the process of generating LaTeX documents by issuing the appropriate sequence of commands to be run.
 
-#### Résumé
+* `args`
 
-You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)
+    The extra arguments to be passed to the LaTeX engine. By default, it is `-pdf -file-line-error -halt-on-error -interaction=nonstopmode`. This tells `latexmk` to use `pdflatex`. Refer to [`latexmk` document](http://texdoc.net/texmf-dist/doc/support/latexmk/latexmk.pdf) for more information.
 
-| Page. 1 | Page. 2 |
-|:---:|:---:|
-| [![Résumé](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-0.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)  | [![Résumé](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-1.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf) |
+* `extra_system_packages`
 
-#### Cover Letter
+    The extra packages to be installed by [`apk`](https://pkgs.alpinelinux.org/packages) separated by space. For example, `extra_system_packages: "py-pygments"` will install the package `py-pygments` to be used by the `minted` for code highlights.
 
-You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf)
+* `pre_compile`
 
-| Without Sections | With Sections |
-|:---:|:---:|
-| [![Cover Letter(Traditional)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-0.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf)  | [![Cover Letter(Awesome)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-1.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf) |
+    Arbitrary bash codes to be executed before compiling LaTeX documents. For example, `pre_compile: "tlmgr update --all"` to update all TeXLive packages.
 
+* `post_compile`
 
-## Quick Start
+    Arbitrary bash codes to be executed after compiling LaTeX documents. For example, `post_compile: "latexmk -c"` to clean up temporary files.
 
-* [**Edit Résumé on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv/tvmzpvdjfqxp)
-* [**Edit Cover Letter on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv-cover-letter/pfzzjspkthbk)
+**The following inputs are only valid if the input `compiler` is not changed.**
 
-**_Note:_ Above services do not guarantee up-to-date source code of Awesome CV**
+* `latexmk_shell_escape`
 
+    Instruct `latexmk` to enable `--shell-escape`.
 
-## How to Use
+* `latexmk_use_lualatex`
 
-#### Requirements
+    Instruct `latexmk` to use LuaLaTeX.
 
-A full TeX distribution is assumed.  [Various distributions for different operating systems (Windows, Mac, \*nix) are available](http://tex.stackexchange.com/q/55437) but TeX Live is recommended.
-You can [install TeX from upstream](http://tex.stackexchange.com/q/1092) (recommended; most up-to-date) or use `sudo apt-get install texlive-full` if you really want that.  (It's generally a few years behind.)
+* `latexmk_use_xelatex`
 
-#### Usage
+    Instruct `latexmk` to use XeLaTeX.
 
-At a command prompt, run
+## Example
 
-```bash
-$ xelatex {your-cv}.tex
+```yaml
+name: Build LaTeX document
+on: [push]
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
 ```
 
-This should result in the creation of ``{your-cv}.pdf``
+## FAQs
 
+### How to use XeLaTeX or LuaLaTeX instead of pdfLaTeX?
 
-## Credit
+By default, this action uses pdfLaTeX. If you want to use XeLaTeX or LuaLaTeX, you can set the `latexmk_use_xelatex` or `latexmk_use_lualatex` input respectively. For example:
 
-[**LaTeX**](http://www.latex-project.org) is a fantastic typesetting program that a lot of people use these days, especially the math and computer science people in academia.
+```yaml
+- uses: xu-cheng/latex-action@v2
+  with:
+    root_file: main.tex
+    latexmk_use_xelatex: true
+```
 
-[**LaTeX FontAwesome**](https://github.com/furl/latex-fontawesome) is bindings for FontAwesome icons to be used in XeLaTeX.
+```yaml
+- uses: xu-cheng/latex-action@v2
+  with:
+    root_file: main.tex
+    latexmk_use_lualatex: true
+```
 
-[**Roboto**](https://github.com/google/roboto) is the default font on Android and ChromeOS, and the recommended font for Google’s visual language, Material Design.
+Alternatively, you could create a `.latexmkrc` file. Refer to the [`latexmk` document](http://texdoc.net/texmf-dist/doc/support/latexmk/latexmk.pdf) for more information.
 
-[**Source Sans Pro**](https://github.com/adobe-fonts/source-sans-pro) is a set of OpenType fonts that have been designed to work well in user interface (UI) environments.
+### How to enable `--shell-escape`?
 
+To enable `--shell-escape`, set the `latexmk_shell_escape` input.
 
-## Contact
+```yaml
+- uses: xu-cheng/latex-action@v2
+  with:
+    root_file: main.tex
+    latexmk_shell_escape: true
+```
 
-You are free to take my `.tex` file and modify it to create your own resume. Please don't use my resume for anything else without my permission, though!
+### Where is the PDF file? How to upload it?
 
-If you have any questions, feel free to join me at [`#posquit0` on Freenode](irc://irc.freenode.net/posquit0) and ask away. Click [here](https://kiwiirc.com/client/irc.freenode.net/posquit0) to connect.
+The PDF file will be in the same folder as that of the LaTeX source in the CI environment. It is up to you on whether to upload it to some places. Here are some example.
+* You can use [`@actions/upload-artifact`](https://github.com/actions/upload-artifact) to upload PDF file to the workflow tab.
+* You can use [`@actions/upload-release-asset`](https://github.com/actions/upload-release-asset) to upload PDF file to the Github Release.
+* You can use normal shell tools such as `scp`/`git`/`rsync` to upload PDF file anywhere. For example, you can git push to the `gh-pages` branch in your repo, so you can view the document using Github Pages.
 
-Good luck!
+### It fails due to `xindy` cannot be found.
 
+This is an upstream issue where `xindy.x86_64-linuxmusl` is currently missing in TeXLive. To work around it, try [this](https://github.com/xu-cheng/latex-action/issues/32#issuecomment-626086551).
 
-## See Also
+### It fails to build the document, how to solve it?
 
-* [Awesome Identity](https://github.com/posquit0/hugo-awesome-identity) - A single-page Hugo theme to introduce yourself.
+* Try to solve the problem by examining the build log.
+* Try to build the document locally.
+* You can also try to narrow the problem by creating a [minimal working example][mwe] to reproduce the problem.
+* [Open an issue](https://github.com/xu-cheng/latex-action/issues/new) if you need help. Please include a [minimal working example][mwe] to demonstrate your problem.
+
+[mwe]: https://tex.meta.stackexchange.com/questions/228/ive-just-been-asked-to-write-a-minimal-working-example-mwe-what-is-that
+
+## License
+
+MIT

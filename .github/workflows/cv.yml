@@ -16,7 +16,7 @@ jobs:
       - name: move to dir # Move the generated files into output folder
         run: |
           mkdir -p output
-          yes| cp -rf testfile.txt ./output/
+          yes| cp -rf resume.pdf ./output/
       - name: Commit files # commit the output folder
         run: |
           git config --local user.email "git-anish@github.com"
@@ -24,7 +24,7 @@ jobs:
           git add ./output
           git commit -m "Add changes"
       - name: Push changes # push the output folder to your repo
-        uses: git-anish/CV/output/@master
+        uses: actions/checkout@v1
         with:
           branch: master #ignore if your branch is master
           github_token: ${{ secrets.ok }}

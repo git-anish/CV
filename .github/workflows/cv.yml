@@ -9,7 +9,7 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v1
       - name: Compile basic LaTeX document
-        uses: ./
+        uses: ./.github/workflows/cv.yml
         with:
           root_file: resume.tex
           working_directory: /

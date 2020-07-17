@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: anish/awesome-cv-action@0.0.1
+    - uses: git-anish/cv@0.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.ok }}
       with:

@@ -202,8 +202,8 @@
 ]{Lato}
 
 % \newcommand*{\footerfont}{\sourcesanspro}
-%\newcommand*{\bodyfont}{\sourcesanspro}
-%\newcommand*{\bodyfontlight}{\sourcesansprolight}
+% \newcommand*{\bodyfont}{\sourcesanspro}
+% \newcommand*{\bodyfontlight}{\sourcesansprolight}
 
 %-------------------------------------------------------------------------------
 %                Configuration for styles

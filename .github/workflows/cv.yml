@@ -1,5 +1,7 @@
 name: Test Github Action
-on: [push, pull_request]
+on:
+  push:
+  schedule:
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -10,5 +12,5 @@ jobs:
         uses: ./
         with:
           root_file: resume.tex
-          latexmk_use_xelatex: true
           working_directory: ./
+          args: "-xelatex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode"

@@ -1,14 +1,19 @@
-language: cpp
-compiler:
-    - gcc
-branches:
-    only:
-        - master
+language: ruby
+script: >
+  echo '\documentclass{article}\begin{document}Hello, world!\end{document}' | pdflatex
 before_install:
-    - sudo apt-get update -qq
-    - sudo apt-get install -y texlive-full
-    - mkdir -p ~/.fonts/
-    - cp -rf fonts/* ~/.fonts/
-    - sudo fc-cache -f -v
-script:
-    - make test
+  - curl -L https://raw.githubusercontent.com/krlmlr/texlive-squashfs/master/out/texlive.tar.xz | tar xJC ~
+
+install:
+  - PATH=$HOME/texlive/bin/x86_64-linux:$PATH
+
+deploy:
+  provider: releases
+  api_key:
+    secure: MRdzi6bneGLlCxw1DNS09mbUzdu/YqyfjkbQ/aAFDmqpchxG7PgtZWlBsTiqOiDJYZgd+R3lMXNfMO+Q8HC69Ydr5H3Goe2XP3WfakETlAX829gkUqULdxuKdGXIzTREehtOxVb0dsxEvsp/fLSCLRMwpWgYztFnH1kObSX8AeI=
+  file: article.pdf
+  skip_cleanup: true
+  on:
+    tags: true
+    all_branches: true
+    repo: git-anish/cv

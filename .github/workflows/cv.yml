@@ -13,3 +13,7 @@ jobs:
           root_file: resume.tex
           working_directory: ./
           args: "-xelatex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode"
+        name: Check pdf files
+          run: |
+            set -e
+            file ./resume.pdf | grep -q ' PDF '

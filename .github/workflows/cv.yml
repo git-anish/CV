@@ -17,3 +17,5 @@ jobs:
           run: |
             set -e
             file ./resume.pdf | grep -q ' PDF '
+        name: Release PDF
+        uses: actions/upload-release-asset

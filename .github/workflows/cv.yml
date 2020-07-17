@@ -1,16 +1,12 @@
-name: Anish-CV
-
-on:
-  push:
-
 jobs:
-  awesome-cv-job:
+  test:
     runs-on: ubuntu-latest
     steps:
-      uses: actions/checkout@v1
-    - uses: git-anish/CV@0.0.1
-      env:
-        GITHUB_TOKEN: ${{ secrets.ok }}
-      with:
-        FILE_NAME: 'resume.tex'
+      - name: Set up Git repository
+        uses: actions/checkout@v1
+      - name: Compile basic LaTeX document
+        uses: ./
+        with:
+          root_file: resume.tex
+          working_directory: /
         args: -xelatex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode

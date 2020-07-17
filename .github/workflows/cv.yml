@@ -14,4 +14,4 @@ jobs:
           working_directory: ./
           args: "-xelatex -latexoption=-file-line-error -latexoption=-interaction=nonstopmode"
       - name: Release PDF
-        uses: actions/upload-release-asset
+        uses: @actions/upload-release-asset

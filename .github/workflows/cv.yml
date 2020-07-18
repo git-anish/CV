@@ -17,16 +17,22 @@ jobs:
         run: |
           mkdir -p output
           yes| cp -rf resume.pdf ./output/
-      - name: Commit files # commit the output folder
-        run: |
-          git config --local user.email "git-anish@github.com"
-          git config --local user.name "git-anish"
-          git add ./output
-          git commit -m "Add changes"
-          git push origin master
-      - name: Push changes # push the output folder to your repo
-        uses: git-anish/CV@master
+      - uses: actions/upload-artifact@v2
         with:
-          branch: master #ignore if your branch is master
-          github_token: ${{ secrets.ok }}
-          force: true
+          name: resume
+          path: ./resume.pdf
+
+
+      # - name: Commit files # commit the output folder
+      #   run: |
+      #     git config --local user.email "git-anish@github.com"
+      #     git config --local user.name "git-anish"
+      #     git add ./output
+      #     git commit -m "Add changes"
+      #     git push origin master
+      # - name: Push changes # push the output folder to your repo
+      #   uses: git-anish/CV@master
+      #   with:
+      #     branch: master #ignore if your branch is master
+      #     github_token: ${{ secrets.ok }}
+      #     force: true

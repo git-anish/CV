@@ -20,7 +20,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: resume
-          path: ./resume.pdf
+          path: ./output/resume.pdf
 
 
       # - name: Commit files # commit the output folder

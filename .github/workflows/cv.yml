@@ -23,8 +23,9 @@ jobs:
           git config --local user.name "git-anish"
           git add ./output
           git commit -m "Add changes"
+          git push origin master
       - name: Push changes # push the output folder to your repo
-        uses: git-anish/CV/output/@master
+        uses: git-anish/CV@master
         with:
           branch: master #ignore if your branch is master
           github_token: ${{ secrets.ok }}

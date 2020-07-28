@@ -24,7 +24,7 @@ jobs:
       - name: Commit files # commit the output folder
         run: |
           git config --local user.email "38997845+git-anish@users.noreply.github.com"
-          git config --local user.name "git-anish"
+          git config --local user.name "Anish S"
           git add ./output
           git commit -m "Add changes"
       - name: Push changes # push the output folder to your repo

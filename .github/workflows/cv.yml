@@ -23,7 +23,7 @@ jobs:
           path: ./output/resume.pdf
       - name: Commit files # commit the output folder
         run: |
-          git config --local user.email "git-anish@github.com"
+          git config --local user.email "38997845+git-anish@users.noreply.github.com"
           git config --local user.name "git-anish"
           git add ./output
           git commit -m "Add changes"
